@@ -1,0 +1,40 @@
+<div class="container mt-3">
+    <form [formGroup]="formTranslator" (ngSubmit)="enviarFormulario()">
+        <div class="form-group">
+            <label for="inputAddress">Dirección</label>
+            <input type="text" formControlName="direccion" class="form-control" id="inputAddress"
+                placeholder="Barrio 2500 lotes">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCity">Correo electroncio</label>
+                <input type="email" formControlName="email" class="form-control" id="inputCity">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="exampleFormControlSelect1">Lista de platos</label>
+                <select class="form-control" id="exampleFormControlSelect1" formControlName="plato">
+                    <option *ngFor="let comida of comidasRestaurante" [value]="comida['id']">{{ comida['nombre'] }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row" style="display: flex; align-items: center;">
+            <div class="form-group col-md-10">
+                <label for="inputCity">Código Pedido</label>
+                <input type="text" formControlName="codigo" class="form-control" id="inputCity">
+            </div>
+            <button type="button" class="btn btn-info col-md-2 h-50 mt-2" data-toggle="modal" data-target="#exampleModal"><i
+                    class="fas fa-paper-plane"></i>Obtener Código</button>
+        </div>
+        <div class="d-flex justify-content-between">
+            <button type="reset" class="btn btn-primary"><i class="fas fa-sync-alt"></i> Restaurar</button>
+            <button type="submit" [disabled]="!formTranslator.valid" class="btn btn-success"><i
+                    class="fas fa-paper-plane"></i> Enviar</button>
+        </div>
+    </form>
+
+    <!-- Modal -->
+    <app-modal [titulo]="formTranslator.get('plato').value" [platos]="comidasRestaurante"
+        (respuestaHijo)="respuestaMostrar($event)">
+    </app-modal>
+</div>

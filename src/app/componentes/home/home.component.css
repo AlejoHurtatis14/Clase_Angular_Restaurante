@@ -1,0 +1,22 @@
+
+ .contenedor { display: flex; justify-content: center; 
+  background-color: 	#ebebeb;}
+.carousel { width: 80%; } 
+.quienes {
+  width: 20%;
+  padding: 10px;
+  position: absolute;
+  top: 65px;
+  left: 215px;
+  z-index: 1;
+  color: white;
+  letter-spacing: 1px;
+}
+.quienes .quienes-somos {
+  font-size: 30px;
+  font-weight: 800;
+}
+.quienes .contenido {
+  font-size: 20px;
+  text-align: justify !important;
+}
