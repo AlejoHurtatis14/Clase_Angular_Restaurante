@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container mt-3" *ngIf="listaComidasPedido.length">
     <form [formGroup]="formTranslator" (ngSubmit)="enviarFormulario()">
         <div class="form-group">
             <label for="inputAddress">Dirección</label>
@@ -7,34 +7,49 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
+                <label for="inputCity">Nombre de la persona a recibir</label>
+                <input type="text" formControlName="nombrePersona" class="form-control" id="inputCity">
+            </div>
+            <div class="form-group col-md-6">
                 <label for="inputCity">Correo electroncio</label>
                 <input type="email" formControlName="email" class="form-control" id="inputCity">
             </div>
+        </div>
+        <div class="form-row align-items-center">
             <div class="form-group col-md-6">
-                <label for="exampleFormControlSelect1">Lista de platos</label>
-                <select class="form-control" id="exampleFormControlSelect1" formControlName="plato">
-                    <option *ngFor="let comida of comidasRestaurante" [value]="comida['id']">{{ comida['nombre'] }}
-                    </option>
-                </select>
+                <label for="inputCity">Telefono</label>
+                <input type="email" formControlName="telefono" class="form-control" id="inputCity">
             </div>
+            <div class="form-group col-md-4">
+                <label for="inputCity">Código Pedido</label>
+                <input type="text" readonly formControlName="codigo" class="form-control" id="inputCity">
+            </div>
+            <button type="button" class="btn btn-info col-md-2 h-50 mt-2" data-toggle="modal"
+                data-target="#exampleModal"><i class="fas fa-paper-plane"></i>Generar</button>
         </div>
         <div class="form-row" style="display: flex; align-items: center;">
-            <div class="form-group col-md-10">
-                <label for="inputCity">Código Pedido</label>
-                <input type="text" formControlName="codigo" class="form-control" id="inputCity">
-            </div>
-            <button type="button" class="btn btn-info col-md-2 h-50 mt-2" data-toggle="modal" data-target="#exampleModal"><i
-                    class="fas fa-paper-plane"></i>Obtener Código</button>
         </div>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between mb-3">
             <button type="reset" class="btn btn-primary"><i class="fas fa-sync-alt"></i> Restaurar</button>
             <button type="submit" [disabled]="!formTranslator.valid" class="btn btn-success"><i
                     class="fas fa-paper-plane"></i> Enviar</button>
         </div>
     </form>
-
+    <div class="row">
+        <app-tarjeta-comida class="col-4 col-sm-12 col-md-6 col-lg-3 mb-5" *ngFor="let eat of listaComidasPedido"
+            [comida]="eat" [agregarMas]="false">
+        </app-tarjeta-comida>
+    </div>
     <!-- Modal -->
-    <app-modal [titulo]="formTranslator.get('plato').value" [platos]="comidasRestaurante"
-        (respuestaHijo)="respuestaMostrar($event)">
+    <app-modal [titulo]="'Hola'" (respuestaHijo)="respuestaMostrar($event)">
     </app-modal>
+</div>
+
+<div class="container mt-3" *ngIf="!listaComidasPedido.length">
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Bienvenido a nuestra aplicación!</h4>
+        <p>Debe pasar primero a productos y seleccionar los productos para realizar el pedido.</p>
+        <hr>
+        <p class="mb-0">Gracias por preferirnos. ©Copyright - Neider Alejandro Hurtatis López</p>
+    </div>
 </div>

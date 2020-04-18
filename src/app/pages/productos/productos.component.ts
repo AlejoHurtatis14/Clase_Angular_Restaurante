@@ -15,11 +15,13 @@ export class ProductosComponent implements OnInit {
   constructor(private restauranteService: RestauranteService) { }
 
   ngOnInit(): void {
-    this.restauranteService.obtenerPlatos().subscribe((respuesta: Array<object>) => {
+    /* this.restauranteService.obtenerPlatos().subscribe((respuesta: Array<object>) => {
       if (respuesta['success']) {
+        console.log("Holaaaaa ", respuesta['mensaje']);
         this.comidasRestaurante = respuesta['mensaje'];
       }
-    });
+    }); */
+    this.comidasRestaurante = this.restauranteService.obtenerPlatos();
   }
 
   agregarCarrito(comida) {

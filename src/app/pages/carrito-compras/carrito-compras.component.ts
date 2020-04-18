@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { RestauranteService } from '../../servicios/servicios-restaurante-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrito-compras',
@@ -14,7 +16,7 @@ export class CarritoComprasComponent implements OnInit {
 
   faShoppingCart = faShoppingCart;
 
-  constructor() {
+  constructor(private restauranteService: RestauranteService, private router: Router) {
     this.posicion = new EventEmitter();
   }
 
@@ -23,6 +25,13 @@ export class CarritoComprasComponent implements OnInit {
 
   eliminarCarrito(pos) {
     this.posicion.emit(pos);
+  }
+
+  realizarPedido() {
+    if (this.listaComidas.length > 0) {
+      this.restauranteService.pedidoComidas(this.listaComidas);
+      this.router.navigateByUrl('pedidos');
+    }
   }
 
 }

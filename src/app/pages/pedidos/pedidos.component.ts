@@ -10,24 +10,24 @@ import { RestauranteService } from 'src/app/servicios/servicios-restaurante-serv
 export class PedidosComponent implements OnInit {
 
   formTranslator: FormGroup;
-  comidasRestaurante: Array<object> = [];
+  listaComidasPedido:Array<object> = [];
 
-  constructor(private _formBuilder: FormBuilder, private restauranteService: RestauranteService) { }
+  constructor(private _formBuilder: FormBuilder, private restauranteService: RestauranteService) {
+    this.listaComidasPedido = this.restauranteService.pedidoComidas([], true);
+  }
 
   ngOnInit(): void {
     this.configForm();
-    this.obtenerListaPlatos();
   }
 
   configForm() {
     this.formTranslator = this._formBuilder.group({
       telefono: '',
+      nombrePersona: '',
       direccion: '',
       email: '',
-      plato: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
       codigo: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
     });
-    this.formTranslator.get('codigo').disable();
   }
 
   enviarFormulario() {
@@ -36,16 +36,6 @@ export class PedidosComponent implements OnInit {
     } else {
       console.log("FOrmulario invalid ", this.formTranslator.valid)
     }
-  }
-
-  obtenerListaPlatos() {
-    this.restauranteService.obtenerPlatos().subscribe((respuesta: Array<object>) => {
-      if (respuesta['success']) {
-        this.comidasRestaurante = respuesta['mensaje'];
-      }
-    }, error => {
-      console.log("Error ", error);
-    });
   }
 
   respuestaMostrar(evento) {

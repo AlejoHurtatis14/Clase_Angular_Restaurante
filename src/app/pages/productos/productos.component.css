@@ -4,7 +4,9 @@
 }
 .padre {
   width: 78%;
-  margin-right: 30px;
+  margin-right: 20px;
+  margin-left: 10px;
+
 }
 .hermano-padre {
   width: 18%;

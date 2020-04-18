@@ -1,0 +1,9 @@
+<div class="card animated fadeIn fast">
+  <img [src]="comida['imagen']" class="card-img-top" [alt]="comida['nombre']">
+  <div class="card-body">
+    <h5 class="card-title">{{ comida['nombre'] }}</h5>
+    <p class="card-text">{{ comida['precio'] }}</p>
+    <p class="card-text"><small class="text-muted">{{ agregarMas ? comida['estado'] : comida['cantidad'] }}</small></p>
+    <button *ngIf="agregarMas" type="button" (click)="agregarCarrito(comida)" class="btn btn-success">Agregar</button>
+  </div>
+</div>
