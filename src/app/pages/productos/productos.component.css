@@ -1,3 +1,16 @@
+.abuelo {
+  width: 100%;
+  display: flex;
+}
+.padre {
+  width: 78%;
+  margin-right: 30px;
+}
+.hermano-padre {
+  width: 18%;
+  border: solid 1px #f3f2f2;
+  text-align: -webkit-center;
+}
 .card-title {
   font-size: 20px;
 }

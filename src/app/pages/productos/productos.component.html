@@ -1,15 +1,21 @@
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="col-4 col-sm-12 col-md-6 col-lg-3 mb-5" *ngFor="let comida of comidasRestaurante">
-            <div class="card animated fadeIn fast">
-                <img [src]="comida['imagen']" class="card-img-top" [alt]="comida['nombre']">
-                <div class="card-body">
-                    <h5 class="card-title">{{ comida['nombre'] }}</h5>
-                    <p class="card-text">{{ comida['precio'] }}</p>
-                    <p class="card-text"><small class="text-muted">{{ comida['estado'] }}</small></p>
-                    <!-- <button class="btn btn-outline-primary btn-block">Ver mas...</button> -->
+<div class="abuelo">
+    <div class="padre mt-3">
+        <div class="row">
+            <div class="col-4 col-sm-12 col-md-6 col-lg-3 mb-5" *ngFor="let comida of comidasRestaurante">
+                <div class="card animated fadeIn fast">
+                    <img [src]="comida['imagen']" class="card-img-top" [alt]="comida['nombre']">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ comida['nombre'] }}</h5>
+                        <p class="card-text">{{ comida['precio'] }}</p>
+                        <p class="card-text"><small class="text-muted">{{ comida['estado'] }}</small></p>
+                        <button type="button" (click)="agregarCarrito(comida)" class="btn btn-success">Agregar</button>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="hermano-padre mt-3">
+        <app-carrito-compras [totalComidas]="valorComidas" [listaComidas]="comidasAgregadas"
+            (posicion)="eliminarCarrito($event)"></app-carrito-compras>
     </div>
 </div>

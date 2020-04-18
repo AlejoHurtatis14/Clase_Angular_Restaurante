@@ -1,0 +1,19 @@
+<div class="contenedor-cabecera">
+  <div class="contenedor-imagen">
+    <img [src]="comida['imagen']" class="card-img" [alt]="comida['nombre']">
+  </div>
+  <div class="contenedor-nombre">
+    <h3>{{ comida['nombre'] }}</h3>
+  </div>
+</div>
+<div class="contenedor-informacion">
+  <div class="contenedor-precio">
+    <span>Unidad: {{ comida['precio'] }}</span>
+  </div>
+  <div class="contenedor-cantidad">
+    <span>Cantidad: {{ comida['cantidad'] }}</span>
+  </div>
+  <div class="contenedor-boton">
+    <button type="button" (click)="eliminarCarrito()" class="btn btn-danger">Sacar</button>
+  </div>
+</div>

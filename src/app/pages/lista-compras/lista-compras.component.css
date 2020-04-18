@@ -1,0 +1,16 @@
+.contenedor-cabecera{
+  display: flex;
+  align-items: center;
+}
+.contenedor-imagen {
+  width: 30%;
+}
+.contenedor-nombre {
+  width: 70%;
+  text-align: center;
+}
+.contenedor-informacion {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}

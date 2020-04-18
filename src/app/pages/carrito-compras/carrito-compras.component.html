@@ -1,0 +1,8 @@
+<div class="total-comprar">
+  <fa-icon [icon]="faShoppingCart"></fa-icon>
+  <span> Total {{ totalComidas }} </span>
+  <button type="button" class="btn btn-success">Comprar</button>
+</div>
+<div class="contenedor" *ngFor="let comida of listaComidas; let pos = index">
+  <app-lista-compras [comida]="comida" [pos]="pos" (posicionComida)="eliminarCarrito($event)"></app-lista-compras>
+</div>

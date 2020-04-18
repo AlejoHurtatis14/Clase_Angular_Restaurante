@@ -13,6 +13,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './shared/modal/modal.component';
 import { MurcielagoPipe } from './shared/pipes/murcielago.pipe';
+import { CarritoComprasComponent } from './pages/carrito-compras/carrito-compras.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ListaComprasComponent } from './pages/lista-compras/lista-compras.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { MurcielagoPipe } from './shared/pipes/murcielago.pipe';
     HomeComponent,
     PedidosComponent,
     ModalComponent,
-    MurcielagoPipe
+    MurcielagoPipe,
+    CarritoComprasComponent,
+    ListaComprasComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,8 @@ import { MurcielagoPipe } from './shared/pipes/murcielago.pipe';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
