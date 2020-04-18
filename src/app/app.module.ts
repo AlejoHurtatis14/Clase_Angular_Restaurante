@@ -16,6 +16,7 @@ import { MurcielagoPipe } from './shared/pipes/murcielago.pipe';
 import { CarritoComprasComponent } from './pages/carrito-compras/carrito-compras.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ListaComprasComponent } from './pages/lista-compras/lista-compras.component';
+import { TarjetaComidaComponent } from './pages/tarjeta-comida/tarjeta-comida.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ListaComprasComponent } from './pages/lista-compras/lista-compras.compo
     ModalComponent,
     MurcielagoPipe,
     CarritoComprasComponent,
-    ListaComprasComponent
+    ListaComprasComponent,
+    TarjetaComidaComponent
   ],
   imports: [
     BrowserModule,
